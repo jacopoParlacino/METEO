@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controlla il Meteo</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #87CEEB, #f0f8ff); /* Cielo azzurro */
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .cloud {
+            position: absolute;
+            top: 10%;
+            width: 200px;
+            opacity: 0.7;
+            animation: moveClouds 30s linear infinite;
+        }
+        .cloud:nth-child(2) {
+            top: 40%;
+            width: 250px;
+            animation-duration: 35s;
+        }
+        .cloud:nth-child(3) {
+            top: 70%;
+            width: 180px;
+            animation-duration: 40s;
+        }
+        @keyframes moveClouds {
+            from { transform: translateX(-300px); }
+            to { transform: translateX(100vw); }
+        }
+        .weather-container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        h1 {
+            color: #FFD700; /* Giallo sole */
+            font-size: 3rem;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+            animation: sunGlow 2s infinite alternate;
+        }
+        @keyframes sunGlow {
+            0% { text-shadow: 0 0 15px rgba(255, 215, 0, 0.5); }
+            100% { text-shadow: 0 0 25px rgba(255, 215, 0, 1); }
+        }
+        .city-button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 15px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            color: white;
+            background: radial-gradient(circle, #ffcc00, #ff9900);
+            box-shadow: 0 0 10px rgba(255, 204, 0, 0.8);
+            transition: all 0.3s ease-in-out;
+        }
+        .city-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 204, 0, 1);
+        }
+        .image-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+        .image-container img {
+            width: 250px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div style="position: absolute; left: 20px; bottom: 20px;">
+    </div>
+    <div class="weather-container">
+        <h1>Meteo Italia</h1>
+        <a class="city-button" href="/milano">Milano</a>
+        <a class="city-button" href="/roma">Roma</a>
+        <a class="city-button" href="/torino">Torino</a>
+    </div>
+    <!-- Sponsor rimossa -->
+</body>
+</html>

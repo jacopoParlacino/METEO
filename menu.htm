@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Meteo</title>
+    <style>
+        /* Stile generale */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #2980b9, #6dd5fa, #ffffff);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Animazione di comparsa */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Titolo */
+        .title-container {
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .title-container h1 {
+            font-size: 3rem;
+            color: white;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+            letter-spacing: 2px;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            }
+            100% {
+                text-shadow: 0 0 20px rgba(255, 255, 255, 1);
+            }
+        }
+
+        /* Menu */
+        .menu-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .menu-container a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin: 10px 20px;
+            padding: 15px 25px;
+            border-radius: 5px;
+            background: linear-gradient(120deg, #2196F3, #21CBF3);
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Effetto neon sui pulsanti */
+        .menu-container a::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(255, 255, 255, 0.3);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .menu-container a:hover::before {
+            opacity: 1;
+        }
+
+        .menu-container a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Aggiunta di animazione per i link */
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .menu-container a:nth-child(odd) {
+            animation: bounce 2s infinite alternate ease-in-out;
+        }
+
+        .menu-container a:nth-child(even) {
+            animation: bounce 2s infinite alternate ease-in-out 0.5s;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Titolo -->
+    <div class="title-container">
+        <h1>🌤️ IL METEO DEL ITS 🌤️</h1>
+    </div>
+
+    <!-- Menu -->
+    <div class="menu-container">
+        <a href="meteo.htm">🏠 Home</a>
+        <a href="torino.htm">🌆 Torino</a>
+        <a href="roma.html">🏛️ Roma</a>
+        <a href="milano.html">🏙️ Milano</a>
+        <a href="contatti.html">📞 Contatti</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controlla il Meteo</title>
+    <style>
+        /* --- Sfondo animato con il cielo --- */
+        body {
+            background: linear-gradient(to bottom, #87CEEB, #f0f8ff); /* Cielo azzurro */
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* --- Effetto nuvole in movimento --- */
+        .cloud {
+            position: absolute;
+            top: 10%;
+            width: 200px;
+            opacity: 0.7;
+            animation: moveClouds 30s linear infinite;
+        }
+        .cloud:nth-child(2) {
+            top: 40%;
+            width: 250px;
+            animation-duration: 35s;
+        }
+        .cloud:nth-child(3) {
+            top: 70%;
+            width: 180px;
+            animation-duration: 40s;
+        }
+
+        @keyframes moveClouds {
+            from { transform: translateX(-300px); }
+            to { transform: translateX(100vw); }
+        }
+
+        /* --- Contenitore meteo con effetto trasparente --- */
+        .weather-container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        /* --- Titolo con effetto luce solare --- */
+        h1 {
+            color: #FFD700; /* Giallo sole */
+            font-size: 3rem;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+            animation: sunGlow 2s infinite alternate;
+        }
+
+        @keyframes sunGlow {
+            0% { text-shadow: 0 0 15px rgba(255, 215, 0, 0.5); }
+            100% { text-shadow: 0 0 25px rgba(255, 215, 0, 1); }
+        }
+
+        /* --- Pulsanti con effetto "sole" --- */
+        .city-button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 15px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            color: white;
+            background: radial-gradient(circle, #ffcc00, #ff9900);
+            box-shadow: 0 0 10px rgba(255, 204, 0, 0.8);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .city-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 204, 0, 1);
+        }
+
+        /* --- Immagine sponsor con animazione --- */
+        .image-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+
+        .image-container img {
+            width: 250px;
+        }
+
+        /* --- Icona Home con effetto hover --- */
+        .clickable-image {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .clickable-image img {
+            width: 80px;
+            cursor: pointer;
+        }
+
+        .clickable-image:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* --- Animazioni generali --- */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Nuvole animate -->
+    <img src="immagini/nuvola1.png" class="cloud">
+    <img src="immagini/nuvola2.png" class="cloud">
+    <img src="immagini/nuvola3.png" class="cloud">
+
+    <!-- Contenitore Meteo -->
+    <div class="weather-container">
+        <h1>🌤 METEO</h1>
+        <button class="city-button" onclick="redirectToWeatherPage('Torino')">🌆 TORINO</button>
+        <button class="city-button" onclick="redirectToWeatherPage('Roma')">🏛 ROMA</button>
+        <button class="city-button" onclick="redirectToWeatherPage('Milano')">🏙 MILANO</button>
+    </div>
+
+    <!-- Immagine Sponsor -->
+    <div class="image-container">
+        <img src="immagini/sponsor.png" alt="Sponsor">
+    </div>
+
+    <!-- Icona Home -->
+    <div class="clickable-image">
+        <a href="menu.htm">
+            <img src="immagini/home.png" alt="Clicca qui">
+        </a>
+    </div>
+
+    <!-- Script -->
+    <script>
+        function redirectToWeatherPage(city) {
+            if (city === 'Torino') {
+                window.location.href = 'torino.htm';
+            } else if (city === 'Roma') {
+                window.location.href = 'roma.html';
+            } else if (city === 'Milano') {
+                window.location.href = 'milano.html';
+            }
+        }
+    </script>
+</body>
+</html>
