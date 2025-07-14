@@ -8,17 +8,6 @@ Applicazione web meteo realizzata con Spring Boot e Docker.
 - Immagini personalizzate
 - Deploy tramite Docker
 
-## Avvio locale
-
-1. Compila il progetto:
-   ```sh
-   mvn clean package
-   ```
-2. Avvia l'applicazione:
-   ```sh
-   java -jar target/meteo-0.0.1-SNAPSHOT.jar
-   ```
-
 ## Avvio con Docker
 
 1. Costruisci l'immagine:
